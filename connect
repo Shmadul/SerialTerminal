@@ -1,11 +1,11 @@
 #!/bin/bash
 echo "@shmadul's Serial Terminal"
-echo "Much More Reliable than ATS or CoolTerm"
+echo "Much More Stable than ATS or CoolTerm"
 local='ls /dev/tty.usb*'
 port='115200'
-cache=$(mktemp /tmp/serial.terminal)
+tempfile=$(mktemp /tmp/serial.terminal)
 echo "#!/bin/bash
-screen ${local:3} $port" > $cache
-chmod +x $cache
-$cache
-rm "$cache"
+screen ${local:3} $port" > $tempfile
+chmod +x $tempfile
+$tempfile
+rm "$tempfile"
